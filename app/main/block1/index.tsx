@@ -2,13 +2,17 @@ import Image from "next/image";
 
 export default function Block1() {
     return(
-        <>
-            <div className="">
-                <div className="">
-                    <Image src="/block1Bg.jpeg" alt="block1Bg" fill priority className=""></Image>
-                </div>
-                <div className="bg-gradient-to-r from-blue-600 to-transparent absolute pb-[456px] pt-[80px] px-[80px]">
-                    <div className="text-white font-bold flex flex-col gap-8">
+        <section className="relative min-h-[640px] w-full overflow-hidden">
+            <Image
+                src="/block1Bg.jpeg"
+                alt="Фон первого блока"
+                fill
+                priority
+                className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-600/70 to-transparent">
+                <div className="relative z-10 flex min-h-[640px] items-start px-[80px] pt-[80px]">
+                    <div className="text-white font-bold flex max-w-[680px] flex-col gap-8">
                         <div className="flex flex-col gap-[20px]">
                             <p className="text-[40px]">Учет обращения жильцов</p>
                             <div className="flex flex-col gap-[20px]">
@@ -22,6 +26,6 @@ export default function Block1() {
                     </div>
                 </div>
             </div>
-        </>
+        </section>
     );
 }
