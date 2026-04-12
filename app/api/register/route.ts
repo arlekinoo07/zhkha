@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
-import prisma from "@/lib/prisma";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
   try {
+    const { default: prisma } = await import("@/lib/prisma");
     const { email, password } = await req.json();
 
     // проверка: пользователь уже есть?

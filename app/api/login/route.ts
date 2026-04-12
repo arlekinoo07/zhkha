@@ -1,6 +1,8 @@
-import prisma from "@/lib/prisma";
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
+  const { default: prisma } = await import("@/lib/prisma");
   const { email, password } = await req.json();
 
   const user = await prisma.user.findUnique({ where: { email } });
