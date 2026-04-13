@@ -1,15 +1,15 @@
 export default function Block2() {
     return(
-        <section className="bg-gray-200 py-[48px]">
-                <div className="flex justify-between px-[120px]">
-                    <div className="bg-white w-fit pl-[24px] pr-[100px] py-[12px] rounded-xl shadow-2xl">
-                        <p className="font-bold text-[20px] text-blue-500">Всего обращений: <span className="text-black">128</span></p>
+        <section className="bg-gray-200 px-4 py-8 sm:px-6 lg:px-10 xl:px-16">
+                <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-2 xl:grid-cols-3">
+                    <div className="rounded-xl bg-white px-6 py-4 shadow-2xl">
+                        <p className="text-base font-bold text-blue-500 sm:text-lg lg:text-xl">Всего обращений: <span className="text-black">128</span></p>
                     </div>
-                    <div className="bg-white w-fit pl-[24px] pr-[188px] py-[12px] rounded-xl shadow-2xl">
-                        <p className="font-bold text-[20px] text-blue-500">В работе: <span className="text-black">128</span></p>
+                    <div className="rounded-xl bg-white px-6 py-4 shadow-2xl">
+                        <p className="text-base font-bold text-blue-500 sm:text-lg lg:text-xl">В работе: <span className="text-black">128</span></p>
                     </div>
-                    <div className="bg-white w-fit pl-[24px] pr-[100px] py-[12px] rounded-xl shadow-2xl">
-                        <p className="font-bold text-[20px] text-blue-500">Выполнено: <span className="text-black">128</span></p>
+                    <div className="rounded-xl bg-white px-6 py-4 shadow-2xl">
+                        <p className="text-base font-bold text-blue-500 sm:text-lg lg:text-xl">Выполнено: <span className="text-black">128</span></p>
                     </div>
                 </div>
         </section>

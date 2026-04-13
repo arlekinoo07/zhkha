@@ -35,10 +35,11 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-between min-h-screen bg-blue-50">
+    <div className="flex min-h-screen flex-col items-center bg-blue-50">
       <Header />
     
-    <div className="w-full max-w-md bg-white rounded-2xl p-8 shadow-lg border border-blue-100 mb-[260px]">
+    <div className="mb-10 w-full max-w-md px-4 pt-6 sm:px-6 lg:pt-10">
+    <div className="w-full rounded-2xl border border-blue-100 bg-white p-6 shadow-lg sm:p-8">
 
       <h1 className="text-2xl font-semibold text-center mb-6 text-gray-800">
         {mode === "login" ? "Вход" : "Регистрация"}
@@ -107,6 +108,7 @@ export default function Home() {
           </p>
         </form>
       )}
+    </div>
     </div>
   </div>
   );

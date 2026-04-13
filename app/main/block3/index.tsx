@@ -1,145 +1,124 @@
 import Image from "next/image";
 
+const appeals = [
+  { id: "1.", topic: "Замена ламп в подъезде", status: "В работе", statusClass: "bg-green-500", date: "24.12.2021" },
+  { id: "2.", topic: "Течь в стойке", status: "Выполнено", statusClass: "bg-blue-600", date: "23.12.2021" },
+  { id: "3.", topic: "Уборка снега в подъезде", status: "Новая", statusClass: "bg-amber-500", date: "21.12.2021" },
+];
+
+const categories = [
+  { image: "/photo1B3.png", alt: "Сантехника", title: "Сантехника" },
+  { image: "/photo2B3.png", alt: "Электрика", title: "Электрика" },
+  { image: "/photo3B3.png", alt: "Прочее", title: "Прочее" },
+  { image: "/photo4B3.png", alt: "Уборка", title: "Уборка" },
+];
+
+const newsItems = [
+  { date: "25.12.2021", title: "Профилактика отопления" },
+  { date: "25.12.2021", title: "Профилактика отопления" },
+];
+
+const statusLegend = [
+  { color: "bg-yellow-300", label: "Новые" },
+  { color: "bg-red-500", label: "Отклонено" },
+  { color: "bg-blue-700", label: "В работе" },
+  { color: "bg-green-500", label: "Выполнено" },
+];
+
 export default function Block3() {
     return(
-        <>
-            <div className="bg-gray-200 flex gap-[32px] pl-[10px]">
-                <div className="pl-[60px] py-[40px] flex flex-col gap-[32px]">
-                    <div className="w-[800px] flex flex-col gap-[32px] bg-white shadow-2xl rounded-2xl px-[40px] py-[20px]">
-                        <p className="text-blue-500 text-[30px] font-bold">Последние обращения</p>
-                        <div className="flex flex-col gap-[16px] justify-center">
-                            <div className="h-px bg-gray-300 w-full"></div>
-                            <div className="font-bold flex items-center w-full">
-                                <p className="pr-[96px]">№</p>
-                                <p className="pr-[256px]">Тема</p>
-                                <p className="pr-[176px]">Статус</p>
+        <section className="bg-gray-200 px-4 pb-10 sm:px-6 lg:px-10 xl:px-16">
+            <div className="mx-auto flex max-w-7xl flex-col gap-6 xl:flex-row">
+                <div className="flex min-w-0 flex-1 flex-col gap-6">
+                    <div className="flex flex-col gap-6 rounded-2xl bg-white px-5 py-6 shadow-2xl sm:px-8">
+                        <p className="text-2xl font-bold text-blue-500 sm:text-3xl">Последние обращения</p>
+                        <div className="flex flex-col divide-y divide-gray-200">
+                            <div className="hidden grid-cols-[80px_minmax(0,1fr)_150px_120px] gap-4 border-y border-gray-300 py-4 text-sm font-bold text-gray-700 lg:grid">
+                                <p>№</p>
+                                <p>Тема</p>
+                                <p>Статус</p>
                                 <p>Дата</p>
                             </div>
-                            <div className="h-px bg-black w-full"></div>
-                            <div className="font-semibold flex items-center w-full">
-                                <p className="pr-[100px]">1.</p>
-                                <p>Замена ламп в подъезде</p>
-                                <button className="px-[16px] py-[4px] bg-green-500 rounded-lg text-white font-bold ml-[65px] w-[130px]">В работе</button>
-                                <p className="pl-[128px]">24.12.2021</p>
-                            </div>
-                            <div className="h-px bg-gray-300 w-full"></div>
-                            <div className="font-semibold flex items-center">
-                                <p className="pr-[94px]">2.</p>
-                                <p>Течь в стойке</p>
-                                <button className="px-[16px] py-[4px] bg-blue-600 rounded-lg text-white font-bold ml-[158px] w-[130px]">Выполнено</button>
-                                <p className="pl-[128px]">23.12.2021</p>
-                            </div>
-                            <div className="h-px bg-gray-300 w-full"></div>
-                            <div className="font-semibold flex items-center">
-                                <p className="pr-[93px]">3.</p>
-                                <p>Уборка снега в подъезде</p>
-                                <button className="px-[16px] py-[4px] bg-amber-500 rounded-lg text-white font-bold ml-[100px] w-[130px]">Новая</button>
-                                <p className="pl-[152px]">21.12.2021</p>
-                            </div>
+                            {appeals.map((appeal) => (
+                                <div key={appeal.id} className="grid gap-3 py-4 lg:grid-cols-[80px_minmax(0,1fr)_150px_120px] lg:items-center lg:gap-4">
+                                    <p className="font-semibold text-gray-500 lg:text-black">{appeal.id}</p>
+                                    <p className="font-semibold">{appeal.topic}</p>
+                                    <span className={`w-fit rounded-lg px-4 py-2 text-center text-sm font-bold text-white ${appeal.statusClass}`}>
+                                        {appeal.status}
+                                    </span>
+                                    <p className="text-sm font-semibold text-gray-500 lg:text-base">{appeal.date}</p>
+                                </div>
+                            ))}
                         </div>
-                        <p className="text-blue-500 font bold cursor-pointer hover:underline outline-offset-4 ml-[600px] w-[130px]">Смотреть все <span className="text-black">{`>`}</span></p>
+                        <p className="w-fit cursor-pointer text-sm font-bold text-blue-500 hover:underline sm:self-end sm:text-base">Смотреть все <span className="text-black">{`>`}</span></p>
                     </div>
-                    <div className="w-[800px] bg-white shadow-2xl rounded-2xl px-[40px] py-[20px] flex flex-col gap-[24px]">
-                        <p className="font-bold text-blue-500 text-[30px]">Категории обращений</p>
-                        <div className="h-px bg-gray-300 w-full"></div>
-                        <div className='flex flex-col gap-[32px]'>
-                            <div className='flex justify-between'>
-                                <div className='px-[24px] bg-blue-100 rounded-lg w-fit py-[24px] flex gap-[16px]'>
-                                    <div>
-                                        <Image src="/photo1B3.png" alt="photo1" priority width={32} height={30}></Image>
-                                    </div>
-                                    <p className='text-[25px] font-semibold text-blue-400'>Сантехника</p>
+                    <div className="flex flex-col gap-6 rounded-2xl bg-white px-5 py-6 shadow-2xl sm:px-8">
+                        <p className="text-2xl font-bold text-blue-500 sm:text-3xl">Категории обращений</p>
+                        <div className="h-px w-full bg-gray-300"></div>
+                        <div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+                            {categories.map((category) => (
+                                <div key={category.title} className='flex items-center gap-4 rounded-lg bg-blue-100 px-5 py-5'>
+                                    <Image src={category.image} alt={category.alt} priority width={32} height={30}></Image>
+                                    <p className='text-lg font-semibold text-blue-400 sm:text-xl'>{category.title}</p>
                                 </div>
-                                <div className='px-[24px] bg-blue-100 rounded-lg w-fit py-[24px] flex gap-[16px]'>
-                                    <div>
-                                        <Image src="/photo2B3.png" alt="photo1" priority width={32} height={30}></Image>
-                                    </div>
-                                    <p className='text-[25px] font-semibold text-blue-400'>Электрика</p>
-                                </div>
-                                <div className='px-[24px] bg-blue-100 rounded-lg w-fit py-[24px] flex gap-[16px]'>
-                                    <div>
-                                        <Image src="/photo3B3.png" alt="photo1" priority width={32} height={30}></Image>
-                                    </div>
-                                    <p className='text-[25px] font-semibold text-blue-400'>Прочее</p>
-                                </div>
-                            </div>
-                            <div className='px-[24px] bg-blue-100 rounded-lg w-fit py-[24px] flex gap-[16px]'>
-                                <div>
-                                    <Image src="/photo4B3.png" alt="photo1" priority width={32} height={30}></Image>
-                                </div>
-                                <p className='text-[25px] font-semibold text-blue-400'>Уборка</p>
-                            </div>
+                            ))}
                         </div>
                     </div>
-                    <div className='w-[800px] bg-white shadow-2xl rounded-2xl px-[40px] py-[20px] flex flex-col gap-[24px]'>
-                        <p className="font-bold text-blue-500 text-[30px]">Новости</p>
-                        <div className="h-px bg-gray-300 w-full"></div>
-                        <div className='flex flex-col gap-[16px] pb-[32px]'>
-                            <div className='flex gap-[40px] items-center'>
-                                <p className='text-[20px] font-semibold'>25.12.2021</p>
-                                <p className='text-[20px] font-semibold text-blue-400 underline underline-offset-4 cursor-pointer'>Профилактика отопления</p>
-                            </div>
-                            <div className="h-px bg-gray-300 w-full"></div>
-                            <div className='flex gap-[40px] items-center'>
-                                <p className='text-[20px] font-semibold'>25.12.2021</p>
-                                <p className='text-[20px] font-semibold text-blue-400 underline underline-offset-4 cursor-pointer'>Профилактика отопления</p>
-                            </div>
-                            <div className="h-px bg-gray-300 w-full"></div>
+                    <div className='flex flex-col gap-6 rounded-2xl bg-white px-5 py-6 shadow-2xl sm:px-8'>
+                        <p className="text-2xl font-bold text-blue-500 sm:text-3xl">Новости</p>
+                        <div className="h-px w-full bg-gray-300"></div>
+                        <div className='flex flex-col divide-y divide-gray-300 pb-4'>
+                            {newsItems.map((item, index) => (
+                                <div key={`${item.date}-${index}`} className='flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:gap-6'>
+                                    <p className='text-base font-semibold sm:text-lg'>{item.date}</p>
+                                    <p className='cursor-pointer text-base font-semibold text-blue-400 underline underline-offset-4 sm:text-lg'>{item.title}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
-                <div className=' py-[40px] flex flex-col gap-[36px]'>
-                    <div className='bg-white shadow-2xl rounded-2xl px-[40px] py-[28px] flex flex-col gap-[32px] w-[500px] pb-[52px] pt-[40px]'>
-                        <p className="font-bold text-blue-500 text-[30px]">Форма подачи обращения</p>
-                        <div className="h-px bg-gray-300 w-full"></div>
-                        <div className='flex flex-col gap-[19px]'>
-                            <div className='flex flex-col gap-[8px]'>
+                <div className='flex w-full max-w-[520px] flex-col gap-6 xl:w-[34%]'>
+                    <div className='flex flex-col gap-8 rounded-2xl bg-white px-5 py-6 shadow-2xl sm:px-8'>
+                        <p className="text-2xl font-bold text-blue-500 sm:text-3xl">Форма подачи обращения</p>
+                        <div className="h-px w-full bg-gray-300"></div>
+                        <div className='flex flex-col gap-5'>
+                            <div className='flex flex-col gap-2'>
                                 <p className='font-semibold'>ФИО:</p>
-                                <input className='rounded-lg border border-gray-400 outline-black w-full py-[4px] px-[8px]'></input>
+                                <input className='w-full rounded-lg border border-gray-400 px-3 py-2 outline-black'></input>
                             </div>
-                            <div className='flex flex-col gap-[8px]'>
+                            <div className='flex flex-col gap-2'>
                                 <p className='font-semibold'>Адрес:</p>
-                                <input className='rounded-lg border border-gray-400 outline-black w-full py-[4px] px-[8px]'></input>
+                                <input className='w-full rounded-lg border border-gray-400 px-3 py-2 outline-black'></input>
                             </div>
-                            <div className='flex flex-col gap-[8px]'>
+                            <div className='flex flex-col gap-2'>
                                 <p className='font-semibold'>Тема обращения:</p>
-                                <input className='rounded-lg border border-gray-400 outline-black w-full py-[4px] px-[8px]'></input>
+                                <input className='w-full rounded-lg border border-gray-400 px-3 py-2 outline-black'></input>
                             </div>
-                            <div className='flex flex-col gap-[8px]'>
+                            <div className='flex flex-col gap-2'>
                                 <p className='font-semibold'>Описание проблемы:</p>
-                                <input className='rounded-lg border border-gray-400 outline-black w-full py-[4px] px-[8px] h-[100px]'></input>
+                                <textarea className='h-28 w-full rounded-lg border border-gray-400 px-3 py-2 outline-black'></textarea>
                             </div>
-                            <button className='rounded-lg w-[200px] h-[40px] font-bold text-[20px] cursor-pointer bg-amber-500 text-white hover:shadow-2xl duration-300 ml-27 mt-[10px]'>Отправить</button>
+                            <button className='mt-2 w-full cursor-pointer rounded-lg bg-amber-500 px-6 py-3 text-lg font-bold text-white transition duration-300 hover:shadow-2xl sm:w-fit'>Отправить</button>
                         </div>
                     </div>
-                    <div className=' bg-white shadow-2xl rounded-2xl px-[40px] py-[28px] flex flex-col gap-[24px] w-[500px] pb-[90px]'>
-                        <p className="font-bold text-blue-500 text-[30px]">Статистика</p>
-                        <div className="h-px bg-gray-300 w-full"></div>
-                        <p className="text-[24px] font-semibold text-center">Статусы заявок</p>
-                        <div className="flex gap-[24px] items-center">
-                            <Image src="/chart.png" alt="diagramma" priority width={200} height={100}></Image>
-                            <div className="flex flex-col gap-[12px]">
-                                <div className="flex items-center gap-[16px]">
-                                    <div className="bg-yellow-300 w-[32px] h-[32px] border border-black"></div>
-                                    <p className="font-semibold">Новые</p>
-                                </div>
-                                <div className="flex items-center gap-[16px]">
-                                    <div className="bg-red-500 w-[32px] h-[32px] border border-black"></div>
-                                    <p className="font-semibold">Отклонено</p>
-                                </div>
-                                <div className="flex items-center gap-[16px]">
-                                    <div className="bg-blue-700 w-[32px] h-[32px] border border-black"></div>
-                                    <p className="font-semibold">В работе</p>
-                                </div>
-                                <div className="flex items-center gap-[16px]">
-                                    <div className="bg-green-500 w-[32px] h-[32px] border border-black"></div>
-                                    <p className="font-semibold">Выполнено</p>
-                                </div>
+                    <div className='flex flex-col gap-6 rounded-2xl bg-white px-5 py-6 shadow-2xl sm:px-8'>
+                        <p className="text-2xl font-bold text-blue-500 sm:text-3xl">Статистика</p>
+                        <div className="h-px w-full bg-gray-300"></div>
+                        <p className="text-center text-xl font-semibold sm:text-2xl">Статусы заявок</p>
+                        <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
+                            <Image src="/chart.png" alt="diagramma" priority width={200} height={100} className="mx-auto h-auto w-full max-w-[220px]"></Image>
+                            <div className="flex flex-col gap-3">
+                                {statusLegend.map((item) => (
+                                    <div key={item.label} className="flex items-center gap-4">
+                                        <div className={`h-8 w-8 border border-black ${item.color}`}></div>
+                                        <p className="font-semibold">{item.label}</p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </>
+        </section>
     );
 }
