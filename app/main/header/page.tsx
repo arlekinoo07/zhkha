@@ -14,9 +14,9 @@ export default function Header1() {
                 <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between lg:gap-8'>
                     <div className='flex flex-wrap gap-3 text-sm font-semibold text-blue-500 sm:gap-6 sm:text-base'>
                         <Link href="/" className='cursor-pointer'>Главная</Link>
-                        <p className='cursor-pointer'>Обращения</p>
-                        <p className='cursor-pointer'>Отчеты</p>
-                        <p className='cursor-pointer'>Профиль</p>
+                        <Link href="/appeals" className='cursor-pointer'>Обращения</Link>
+                        <Link href="/reports" className='cursor-pointer'>Отчеты</Link>
+                        <Link href="/profil" className='cursor-pointer'>Профиль</Link>
                     </div>
                     <Link href="/profil">
                         <UserRoundPen className='cursor-pointer text-blue-500'/>

@@ -2,6 +2,7 @@ import { PhoneForwarded } from 'lucide-react';
 import { Mail } from 'lucide-react';
 import { MapPin } from 'lucide-react';
 import Image from 'next/image'
+import Link from 'next/link';
 
 export default function Block4() {
   return (
@@ -18,7 +19,7 @@ export default function Block4() {
                         </div>
                         <div className="flex gap-4">
                             <Mail className='text-blue-500'></Mail>
-                            <p className="font-semibold">Email: <span className="text-blue-500 cursor-pointer">info_zhkha@uk.prime.ru</span></p>
+                            <p className="font-semibold">Email: <Link href="mailto:info_zhkha@uk.prime.ru" className="text-blue-500">info_zhkha@uk.prime.ru</Link></p>
                         </div>
                         <div className="flex gap-4">
                             <MapPin className='text-blue-500'></MapPin>

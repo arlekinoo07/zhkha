@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Block1() {
     return(
@@ -21,7 +22,7 @@ export default function Block1() {
                             </div>
                         </div>
                         <div>
-                            <button className="cursor-pointer rounded-md bg-amber-600 px-6 py-3 text-sm transition duration-300 hover:shadow-2xl sm:text-base">Подать обращение</button>
+                            <Link href="/appeals/new" className="inline-flex cursor-pointer rounded-md bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:shadow-2xl sm:text-base">Подать обращение</Link>
                         </div>
                     </div>
                 </div>

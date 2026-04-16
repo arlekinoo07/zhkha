@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const appeals = [
   { id: "1.", topic: "Замена ламп в подъезде", status: "В работе", statusClass: "bg-green-500", date: "24.12.2021" },
@@ -50,7 +51,7 @@ export default function Block3() {
                                 </div>
                             ))}
                         </div>
-                        <p className="w-fit cursor-pointer text-sm font-bold text-blue-500 hover:underline sm:self-end sm:text-base">Смотреть все <span className="text-black">{`>`}</span></p>
+                        <Link href="/appeals" className="w-fit cursor-pointer text-sm font-bold text-blue-500 hover:underline sm:self-end sm:text-base">Смотреть все <span className="text-black">{`>`}</span></Link>
                     </div>
                     <div className="flex flex-col gap-6 rounded-2xl bg-white px-5 py-6 shadow-2xl sm:px-8">
                         <p className="text-2xl font-bold text-blue-500 sm:text-3xl">Категории обращений</p>
@@ -71,7 +72,7 @@ export default function Block3() {
                             {newsItems.map((item, index) => (
                                 <div key={`${item.date}-${index}`} className='flex flex-col gap-2 py-4 sm:flex-row sm:items-center sm:gap-6'>
                                     <p className='text-base font-semibold sm:text-lg'>{item.date}</p>
-                                    <p className='cursor-pointer text-base font-semibold text-blue-400 underline underline-offset-4 sm:text-lg'>{item.title}</p>
+                                    <Link href="/news/heating-maintenance" className='cursor-pointer text-base font-semibold text-blue-400 underline underline-offset-4 sm:text-lg'>{item.title}</Link>
                                 </div>
                             ))}
                         </div>
@@ -98,7 +99,7 @@ export default function Block3() {
                                 <p className='font-semibold'>Описание проблемы:</p>
                                 <textarea className='h-28 w-full rounded-lg border border-gray-400 px-3 py-2 outline-black'></textarea>
                             </div>
-                            <button className='mt-2 w-full cursor-pointer rounded-lg bg-amber-500 px-6 py-3 text-lg font-bold text-white transition duration-300 hover:shadow-2xl sm:w-fit'>Отправить</button>
+                            <Link href="/appeals/new" className='mt-2 inline-flex w-full cursor-pointer justify-center rounded-lg bg-amber-500 px-6 py-3 text-lg font-bold text-white transition duration-300 hover:shadow-2xl sm:w-fit'>Отправить</Link>
                         </div>
                     </div>
                     <div className='flex flex-col gap-6 rounded-2xl bg-white px-5 py-6 shadow-2xl sm:px-8'>
