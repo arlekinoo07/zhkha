@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export default function Block1() {
     return(
-        <section className="relative min-h-[520px] w-full overflow-hidden md:min-h-[640px]">
+        <section className="group relative min-h-[520px] w-full overflow-hidden md:min-h-[640px]">
             <Image
                 src="/block1Bg.jpeg"
                 alt="Фон первого блока"
                 fill
                 priority
-                className="object-cover"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-600/70 to-transparent">
                 <div className="relative z-10 flex min-h-[520px] items-center px-4 py-12 sm:px-6 md:min-h-[640px] md:px-10 md:py-16 xl:px-20">
@@ -22,7 +22,7 @@ export default function Block1() {
                             </div>
                         </div>
                         <div>
-                            <Link href="/appeals/new" className="inline-flex cursor-pointer rounded-md bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:shadow-2xl sm:text-base">Подать обращение</Link>
+                            <Link href="/appeals/new" className="inline-flex cursor-pointer rounded-md bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl sm:text-base">Подать обращение</Link>
                         </div>
                     </div>
                 </div>
